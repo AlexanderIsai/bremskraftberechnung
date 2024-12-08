@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bremskraftberechnung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Bremskraftberechnung</h1>
+
+    <label for="position">Wählen Sie die Stellung:</label>
+    <select id="position" onchange="showForm()">
+        <option value="">Bitte wählen</option>
+        <option value="G">G</option>
+        <option value="P">P</option>
+    </select>
+
+    <!-- Форма для режима Г (Gang) -->
+    <div id="gang-form" style="display:none;">
+        <label for="trainLength">Länge des Zuges (in Metern, ohne Lokomotive):</label>
+        <input type="number" id="trainLength">
+
+        <label for="trainWeight">Gewicht des Zuges (in Tonnen, ohne Lokomotive):</label>
+        <input type="number" id="trainWeight">
+
+        <label for="trainBrakeWeight">Bremsgewicht des Zuges (in Tonnen, ohne Lokomotive):</label>
+        <input type="number" id="trainBrakeWeight">
+
+        <label for="locomotiveWeight">Gewicht der Lokomotive (in Tonnen):</label>
+        <input type="number" id="locomotiveWeight">
+
+        <label for="locomotiveBrakeWeight">Bremsgewicht der Lokomotive (in Tonnen):</label>
+        <input type="number" id="locomotiveBrakeWeight">
+
+        <label for="minBrakePercentage">Mindesthundertstel:</label>
+        <input type="number" id="minBrakePercentage">
+
+        <button onclick="calculateBrakeForceG()">Berechnen</button>
+    </div>
+
+    <!-- Форма для режима П (Parken) -->
+    <div id="parken-form" style="display:none;">
+        <label for="trainWeightP">Gewicht des Zuges (in Tonnen, ohne Lokomotive):</label>
+        <input type="number" id="trainWeightP">
+
+        <label for="locomotiveWeightP">Gewicht der Lokomotive (in Tonnen):</label>
+        <input type="number" id="locomotiveWeightP">
+
+        <label for="locomotiveBrakeWeightP">Bremsgewicht der Lokomotive (in Tonnen):</label>
+        <input type="number" id="locomotiveBrakeWeightP">
+
+        <label for="firstFiveWeight">Gewicht der ersten 5 Wagen (in Tonnen):</label>
+        <input type="number" id="firstFiveWeight" disabled>
+
+        <label for="firstFiveBrakeWeight">Bremsgewicht der ersten 5 Wagen (in Tonnen):</label>
+        <input type="number" id="firstFiveBrakeWeight" disabled>
+
+        <label for="remainingWeight">Gewicht der restlichen Wagen (in Tonnen):</label>
+        <input type="number" id="remainingWeight">
+
+        <label for="remainingBrakeWeight">Bremsgewicht der restlichen Wagen (in Tonnen):</label>
+        <input type="number" id="remainingBrakeWeight">
+
+        <label for="trainLengthP">Länge des Zuges (in Metern, ohne Lokomotive):</label>
+        <input type="number" id="trainLengthP">
+
+        <label for="minBrakePercentageP">Mindesthundertstel:</label>
+        <input type="number" id="minBrakePercentageP">
+
+        <button onclick="calculateBrakeForceP()">Berechnen</button>
+    </div>
+
+    <div id="result"></div>
+
+    <button onclick="resetForm()">Daten löschen</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
