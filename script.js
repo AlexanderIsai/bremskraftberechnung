@@ -69,7 +69,7 @@ function calculateBrakeForceG() {
     // Если длина поезда больше 700 метров, уменьшаем тормозной вес на 5% для всего состава
     if (trainLength > 700) {
         result += 'Bremsgewicht für den gesamten Zug wurde um 5% reduziert<br>';
-        totalBrakeWeight *= 0.95;  // Уменьшаем тормозной вес на 5%
+        totalBrakeWeight = Math.floor(totalBrakeWeight * 0.95);  // Уменьшаем тормозной вес на 5%
     }
 
     // Рассчитываем тормозной процент
